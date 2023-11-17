@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/vat"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:text="VAT 16%"
+        app:layout_constraintStart_toEndOf="@+id/price"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/flourPrice"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="19dp"
+        app:layout_constraintStart_toEndOf="@+id/flour"
+        app:layout_constraintTop_toBottomOf="@+id/sugarPrice" />
+
+    <TextView
+        android:id="@+id/breadActual"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/breadVat"
+        app:layout_constraintTop_toBottomOf="@+id/flourActual" />
+
+    <TextView
+        android:id="@+id/flourActual"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/flourVat"
+        app:layout_constraintTop_toBottomOf="@+id/sugarActual" />
+
+    <TextView
+        android:id="@+id/milkPrice"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="23dp"
+        app:layout_constraintStart_toEndOf="@+id/milk"
+        app:layout_constraintTop_toBottomOf="@+id/price" />
+
+    <Button
+        android:id="@+id/flour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="FLOUR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sugar" />
+
+    <TextView
+        android:id="@+id/breadVat"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/breadPrice"
+        app:layout_constraintTop_toBottomOf="@+id/flourVat" />
+
+    <TextView
+        android:id="@+id/flourVat"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="19dp"
+        app:layout_constraintStart_toEndOf="@+id/flourPrice"
+        app:layout_constraintTop_toBottomOf="@+id/sugarVat" />
+
+    <TextView
+        android:id="@+id/item"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="18dp"
+        android:text="ITEM"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sugarActual"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/sugarVat"
+        app:layout_constraintTop_toBottomOf="@+id/milkActual" />
+
+    <TextView
+        android:id="@+id/breadPrice"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/bread"
+        app:layout_constraintTop_toBottomOf="@+id/flourPrice" />
+
+    <TextView
+        android:id="@+id/milkActual"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/milkVat"
+        app:layout_constraintTop_toBottomOf="@+id/actualPrice" />
+
+    <Button
+        android:id="@+id/bread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="BREAD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flour" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="18dp"
+        android:text="PRICE"
+        app:layout_constraintStart_toEndOf="@+id/item"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sugarVat"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toEndOf="@+id/sugarPrice"
+        app:layout_constraintTop_toBottomOf="@+id/milkVat" />
+
+    <Button
+        android:id="@+id/sugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="SUGAR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/milk" />
+
+    <TextView
+        android:id="@+id/sugarPrice"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toEndOf="@+id/sugar"
+        app:layout_constraintTop_toBottomOf="@+id/milkPrice" />
+
+    <Button
+        android:id="@+id/milk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="MILK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item" />
+
+    <TextView
+        android:id="@+id/milkVat"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/milkPrice"
+        app:layout_constraintTop_toBottomOf="@+id/vat" />
+
+    <TextView
+        android:id="@+id/actualPrice"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="ACTUAL PRICE"
+        app:layout_constraintStart_toEndOf="@+id/vat"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/grandTotal"
+        android:layout_width="203dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="84dp"
+        android:text="GRAND TOTAL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bread" />
+
+    <Button
+        android:id="@+id/discount"
+        android:layout_width="203dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="44dp"
+        android:text="DISCOUNT 15%"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grandTotal" />
+
+    <TextView
+        android:id="@+id/grandTotalValue"
+        android:layout_width="205dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="102dp"
+        app:layout_constraintStart_toEndOf="@+id/grandTotal"
+        app:layout_constraintTop_toBottomOf="@+id/breadVat" />
+
+    <TextView
+        android:id="@+id/netPayValue"
+        android:layout_width="203dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="64dp"
+        android:outlineProvider="none"
+        app:layout_constraintStart_toEndOf="@+id/netPay"
+        app:layout_constraintTop_toBottomOf="@+id/discountValue" />
+
+    <TextView
+        android:id="@+id/discountValue"
+        android:layout_width="203dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="62dp"
+        app:layout_constraintStart_toEndOf="@+id/discount"
+        app:layout_constraintTop_toBottomOf="@+id/grandTotalValue" />
+
+    <Button
+        android:id="@+id/netPay"
+        android:layout_width="203dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="36dp"
+        android:text="NET PAY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/discount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
