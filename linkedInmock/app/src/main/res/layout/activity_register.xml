@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="14dp"
+        android:text="Create Account"
+        tools:text="Create Account" />
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_marginStart="24dp"
+            android:layout_alignParentTop="true" android:layout_marginTop="45dp" android:id="@+id/username"
+            android:hint="Username" android:layout_centerHorizontal="true"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_marginStart="25dp"
+            android:layout_alignParentTop="true" android:layout_marginTop="107dp"
+            android:id="@+id/email" android:hint="Email" android:layout_centerHorizontal="true"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_marginStart="26dp"
+            android:layout_alignParentTop="true" android:layout_marginTop="163dp"
+            android:id="@+id/password" android:hint="Password" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="4dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="25dp" android:id="@+id/confirm_password" android:hint="Confirm Password"
+            android:layout_marginTop="227dp" android:layout_alignParentEnd="true" android:layout_alignParentTop="true"
+            android:layout_marginEnd="4dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_marginStart="21dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="358dp"
+            android:id="@+id/bio" android:hint="Short Bio" android:layout_centerHorizontal="true"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_marginStart="21dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="287dp"
+            android:id="@+id/skills" android:hint="Skills" android:layout_centerHorizontal="true"/>
+    <ImageView
+            android:layout_width="104dp"
+            android:layout_height="93dp" tools:srcCompat="@tools:sample/avatars"
+            android:layout_alignParentStart="true" android:layout_marginStart="156dp"
+            android:layout_marginBottom="21dp" android:id="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/phone_no"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_marginStart="25dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="124dp"
+            android:id="@+id/phone_no" android:hint="Phone number"/>
+    <Button
+            android:text="Sign Up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_marginStart="147dp" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="62dp" android:id="@+id/register" tools:text="SIGN UP" />
+    <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" android:layout_marginTop="317dp"
+            android:id="@+id/gender" android:layout_alignParentEnd="true" android:layout_marginStart="37dp"
+            android:layout_marginEnd="27dp" android:layout_centerHorizontal="true"/>
+    <TextView
+            android:text="Gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_marginStart="37dp" android:layout_alignParentTop="true" android:layout_marginTop="302dp"
+            android:id="@+id/textView13"/>
+
+    <Button
+        android:id="@+id/goToSignIn"
+        android:layout_width="wrap_content" android:layout_alignParentStart="true"
+        android:layout_height="wrap_content" android:layout_alignParentTop="true"
+        android:layout_marginBottom="50dp"
+        android:text="SignIn" />
+
+</RelativeLayout>

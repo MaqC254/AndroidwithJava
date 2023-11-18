@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_marginStart="171dp" android:layout_alignParentTop="true" android:layout_marginTop="30dp"
+            android:id="@+id/textView5" tools:text="Send Email" android:layout_centerHorizontal="true"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:layout_alignParentStart="true" android:layout_marginStart="51dp"
+            android:layout_alignParentTop="true" android:layout_marginTop="75dp" android:id="@+id/email_content"/>
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentStart="true"
+            android:layout_marginStart="51dp" android:layout_alignParentTop="true" android:layout_marginTop="176dp"
+            android:id="@+id/send_email" tools:text="Send"/>
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" android:layout_marginEnd="89dp" android:layout_marginTop="178dp"
+            android:id="@+id/call" tools:text="Call"/>
+</RelativeLayout>
