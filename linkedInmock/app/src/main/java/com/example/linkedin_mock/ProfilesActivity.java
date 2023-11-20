@@ -76,13 +76,17 @@ public class ProfilesActivity extends AppCompatActivity {
             User user = getItem(position);
 
             if (convertView == null) {
-                convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.user_list_item, parent, false);
             }
 
             // Customize the display by setting the username
-            TextView textView = convertView.findViewById(android.R.id.text1);
+            TextView textUsername = convertView.findViewById(R.id.textUsername);
+            TextView textEmail = convertView.findViewById(R.id.textEmail);
+            TextView textGender = convertView.findViewById(R.id.textGender);
             if (user != null) {
-                textView.setText(user.getUsername());
+                textUsername.setText("Username: " + user.getUsername());
+                textEmail.setText("Email: " + user.getEmail());
+                textGender.setText("Gender: " + user.getGender());
             }
 
             return convertView;
