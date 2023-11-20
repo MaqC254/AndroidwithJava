@@ -4,11 +4,16 @@
                 android:layout_height="match_parent">
 
     <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:layout_marginStart="171dp" android:layout_alignParentTop="true" android:layout_marginTop="30dp"
-            android:id="@+id/textView5" tools:text="Send Email" android:layout_centerHorizontal="true"/>
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="30dp"
+        android:text="Contact"
+        tools:text="Contact" />
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -16,16 +21,27 @@
             android:ems="10"
             android:layout_alignParentStart="true" android:layout_marginStart="51dp"
             android:layout_alignParentTop="true" android:layout_marginTop="75dp" android:id="@+id/email_content"/>
+
     <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentStart="true"
-            android:layout_marginStart="51dp" android:layout_alignParentTop="true" android:layout_marginTop="176dp"
-            android:id="@+id/send_email" tools:text="Send"/>
+        android:id="@+id/send_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="176dp"
+        android:text="Send Email"
+        tools:text="Send Email" />
+
     <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true" android:layout_marginEnd="89dp" android:layout_marginTop="178dp"
-            android:id="@+id/call" tools:text="Call"/>
+        android:id="@+id/call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="178dp"
+        android:layout_marginEnd="89dp"
+        android:text="Call"
+        tools:text="Call" />
 </RelativeLayout>

@@ -17,7 +17,7 @@ public class MessageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.activity_contact);
 
         // Retrieve User object from Intent
         Intent intent = getIntent();
@@ -50,25 +50,31 @@ public class MessageActivity extends AppCompatActivity {
         String emailContent = emailContentEditText.getText().toString();
 
         // Create an Intent to send an email
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-        emailIntent.setData(Uri.parse("mailto:" + user.getEmail()));
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{user.getEmail()});
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
         emailIntent.putExtra(Intent.EXTRA_TEXT, emailContent);
 
         // Verify that the device has an app to handle this intent
         if (emailIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(emailIntent);
+            startActivity(Intent.createChooser(emailIntent, "Choose an Email client"));
         }
     }
+
 
     private void callUser() {
-        // Create an Intent to open the phone dialer with the user's phone number
-        Intent dialIntent = new Intent(Intent.ACTION_DIAL);
-        dialIntent.setData(Uri.parse("tel:" + user.getPhoneNumber()));
+        try {
+            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+            dialIntent.setData(Uri.parse("tel:" + user.getPhoneNumber()));
 
-        // Verify that the device has an app to handle this intent
-        if (dialIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(dialIntent);
+            if (dialIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(dialIntent);
+            }
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            // Handle the exception (e.g., request permissions)
         }
     }
+
 }
