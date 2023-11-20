@@ -1,54 +1,91 @@
 package com.example.linkedin_mock;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProfilesActivity extends AppCompatActivity {
-    DatabaseReference mRef;
-    ListView users;
-    ArrayList <String> arrayList = new ArrayList<>();
+
+    private ListView listView;
+    private List<User> userList;
+    private UserAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRef = FirebaseDatabase.getInstance().getReference("users");
-        users = (ListView) findViewById(R.id.appUsers);
-
         setContentView(R.layout.activity_profiles);
-        mRef.addValueEventListener(new ValueEventListener() {
+
+        // Initialize Firebase
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference usersRef = database.getReference("users");
+
+        // Initialize views
+        listView = findViewById(R.id.appUsers);
+        userList = new ArrayList<>();
+        adapter = new UserAdapter(this, userList);
+        listView.setAdapter(adapter);
+
+        // Retrieve data from Firebase
+        usersRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                arrayList.clear();
-                for (DataSnapshot snapshot1: snapshot.getChildren()) {
-                    User yuser = snapshot.getValue(User.class);
-                    arrayList.add(yuser.getUsername());
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Clear the existing list
+                userList.clear();
+
+                // Iterate through the dataSnapshot to get user data
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    User user = snapshot.getValue(User.class);
+                    userList.add(user);
                 }
+
+                // Notify the adapter that the data has changed
+                adapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error
             }
         });
+    }
 
-        System.out.println(arrayList);
-        ArrayAdapter <String> myArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayList);
-        users.setAdapter(myArrayAdapter);
-//        String[] data = {"item 1", "item 2", "item 3"};
-//
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, data);
-//        users.setAdapter(adapter);
+    // Custom adapter to display user names
+    private static class UserAdapter extends ArrayAdapter<User> {
+
+        UserAdapter(Context context, List<User> userList) {
+            super(context, 0, userList);
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+            User user = getItem(position);
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            }
+
+            // Customize the display by setting the username
+            TextView textView = convertView.findViewById(android.R.id.text1);
+            if (user != null) {
+                textView.setText(user.getUsername());
+            }
+
+            return convertView;
+        }
     }
 }
