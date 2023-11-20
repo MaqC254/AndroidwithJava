@@ -1,6 +1,8 @@
 package com.example.linkedin_mock;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String username;
     private String email;
     private String gender;
