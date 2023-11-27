@@ -65,13 +65,26 @@
             android:layout_alignParentStart="true" android:layout_marginStart="21dp"
             android:layout_alignParentBottom="true" android:layout_marginBottom="287dp"
             android:id="@+id/skills" android:hint="Skills" android:layout_centerHorizontal="true"/>
+
     <ImageView
-            android:layout_width="104dp"
-            android:layout_height="93dp" tools:srcCompat="@tools:sample/avatars"
-            android:layout_alignParentStart="true" android:layout_marginStart="156dp"
-            android:layout_marginBottom="21dp" android:id="@+id/imageView"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/phone_no"/>
+        android:id="@+id/imageView"
+        android:layout_width="104dp"
+        android:layout_height="93dp"
+        android:layout_above="@+id/phone_no"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="12dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/addImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/imageView"
+        android:layout_toEndOf="@id/imageView"
+        android:text="Add Image" />
+
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,6 +1,7 @@
 package com.example.linkedin_mock;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -9,10 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,11 +27,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
+    private static final int PICK_IMAGE_REQUEST = 1;
+    ImageView imageView;
+    String imagePath;
 
     private EditText usernameEditText, emailEditText, passwordEditText, confirmPasswordEditText,
             bioEditText, skillsEditText, phoneNoEditText;
     FirebaseAuth mAuth;
     private DatabaseReference mDataBase;
+
 
     public void sendData(View v){
         writeNewUser();
@@ -37,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void writeNewUser(){
         Spinner genderSpinner = (Spinner) findViewById(R.id.gender);
         String gender = genderSpinner.getSelectedItem().toString();
-        User user = new User(usernameEditText.getText().toString(), emailEditText.getText().toString(), gender, bioEditText.getText().toString(), skillsEditText.getText().toString(), phoneNoEditText.getText().toString());
+        User user = new User(usernameEditText.getText().toString(), emailEditText.getText().toString(), gender, bioEditText.getText().toString(), skillsEditText.getText().toString(), phoneNoEditText.getText().toString(),imagePath);
 
         mDataBase.child("users").child(user.getUsername()).setValue(user);
     }
@@ -48,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
         mDataBase = FirebaseDatabase.getInstance().getReference();
-
+        imageView = findViewById(R.id.imageView);
 
         // Initialize UI components
         Spinner genders=findViewById(R.id.gender);
@@ -64,6 +71,19 @@ public class RegisterActivity extends AppCompatActivity {
         phoneNoEditText = findViewById(R.id.phone_no);
         Button signUpButton = findViewById(R.id.register);
         Button goToSignInButton = findViewById(R.id.goToSignIn);
+        ImageView imageView = findViewById(R.id.imageView);
+        Button addImage = findViewById(R.id.addImage);
+
+
+        addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent photoIntent = new Intent(Intent.ACTION_PICK);
+                photoIntent.setType("image/*");
+                startActivityForResult(photoIntent, PICK_IMAGE_REQUEST);
+            }
+        });
+
 
 
         goToSignInButton.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +143,22 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            Uri selectedImageUri = data.getData();
+
+            // Now you can do something with the selected image URI, for example, set it to an ImageView
+            imageView.setImageURI(selectedImageUri);
+
+            // Save it to a variable or use it as needed
+            imagePath = selectedImageUri.toString();
+        }
+    }
+
 
     private void displayUserInputs(String username, String email, String password,
                                    String confirmPassword, String bio, String skills, String phoneNo) {

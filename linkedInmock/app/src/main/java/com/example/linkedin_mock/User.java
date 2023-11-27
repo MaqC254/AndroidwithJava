@@ -9,19 +9,21 @@ public class User implements Serializable {
     private String shortBio;
     private String skills;
     private String phoneNumber;
+    private String imagePath;
 
     // Add getters and setters
     public User(){
 
     };
 
-    public User(String username, String email, String gender, String shortBio, String skills, String phoneNumber) {
+    public User(String username, String email, String gender, String shortBio, String skills, String phoneNumber, String imagePath) {
         this.username = username;
         this.email = email;
         this.gender = gender;
         this.shortBio = shortBio;
         this.skills = skills;
         this.phoneNumber = phoneNumber;
+        this.imagePath = imagePath;
     }
 
     public String getUsername() {
@@ -47,6 +49,9 @@ public class User implements Serializable {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+    public String getImagePath(){
+        return imagePath;
+    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -70,6 +75,9 @@ public class User implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    public void setImagePath(String imagePath){
+        this.imagePath = imagePath;
     }
 }
 
