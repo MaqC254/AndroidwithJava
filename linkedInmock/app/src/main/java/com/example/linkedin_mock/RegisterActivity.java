@@ -127,7 +127,6 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                   // FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(RegisterActivity.this, "Account created.",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
@@ -157,21 +156,5 @@ public class RegisterActivity extends AppCompatActivity {
             // Save it to a variable or use it as needed
             imagePath = selectedImageUri.toString();
         }
-    }
-
-
-    private void displayUserInputs(String username, String email, String password,
-                                   String confirmPassword, String bio, String skills, String phoneNo) {
-        // Display user inputs in the log
-        String userInputDetails = "Username: " + username +
-                "\nEmail: " + email +
-                "\nPassword: " + password +
-                "\nConfirm Password: " + confirmPassword +
-                "\nBio: " + bio +
-                "\nSkills: " + skills +
-                "\nPhone Number: " + phoneNo;
-
-        // Log the user input details
-        System.out.println(userInputDetails);
     }
 }

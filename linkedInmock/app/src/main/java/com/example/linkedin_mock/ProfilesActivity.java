@@ -2,6 +2,7 @@ package com.example.linkedin_mock;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -98,10 +100,12 @@ public class ProfilesActivity extends AppCompatActivity {
             TextView textUsername = convertView.findViewById(R.id.textUsername);
             TextView textEmail = convertView.findViewById(R.id.textEmail);
             TextView textGender = convertView.findViewById(R.id.textGender);
+            ImageView imageView = convertView.findViewById(R.id.imageView);
             if (user != null) {
                 textUsername.setText("Username: " + user.getUsername());
                 textEmail.setText("Email: " + user.getEmail());
                 textGender.setText("Gender: " + user.getGender());
+                //imageView.setImageURI(Uri.parse(user.getImagePath()));
             }
 
             return convertView;

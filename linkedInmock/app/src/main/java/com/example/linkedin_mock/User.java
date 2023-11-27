@@ -1,5 +1,7 @@
 package com.example.linkedin_mock;
 
+import android.net.Uri;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
